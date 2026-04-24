@@ -1,3 +1,13 @@
-# Vercel deploy token — never commit
+# Secrets — never commit
 .env
+.env.*
+!.env.example
 .vercel/
+
+# Editor swap / backup files
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Vercel deploy token — never commit
