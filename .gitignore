@@ -1,0 +1,3 @@
+# Vercel deploy token — never commit
+.env
+.vercel/
