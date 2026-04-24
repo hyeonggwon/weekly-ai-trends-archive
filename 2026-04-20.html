@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>이번 주 AI 트렌드 — 2026-04-20</title>
+<style>
+  :root {
+    --bg: #0a0a0b;
+    --bg-elev: #131316;
+    --fg: #f4f4f5;
+    --fg-dim: #a1a1aa;
+    --fg-muted: #71717a;
+    --accent: #d97757;
+    --accent-soft: rgba(217, 119, 87, 0.15);
+    --border: #27272a;
+    --max-w: 1100px;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Apple SD Gothic Neo",
+                 "Segoe UI", "Noto Sans KR", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow: hidden;
+    letter-spacing: -0.01em;
+  }
+  .deck {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  .slide {
+    position: absolute;
+    inset: 0;
+    display: none;
+    padding: 8vh 10vw;
+    flex-direction: column;
+    justify-content: center;
+    animation: fade 0.35s ease;
+  }
+  .slide.active { display: flex; }
+  @keyframes fade {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .eyebrow {
+    font-size: 13px;
+    color: var(--fg-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-bottom: 28px;
+  }
+  h1.title {
+    font-size: clamp(40px, 6.4vw, 88px);
+    font-weight: 700;
+    line-height: 1.05;
+    margin: 0 0 24px 0;
+    letter-spacing: -0.03em;
+  }
+  h2.headline {
+    font-size: clamp(30px, 4.4vw, 56px);
+    font-weight: 600;
+    line-height: 1.15;
+    margin: 0 0 28px 0;
+    letter-spacing: -0.02em;
+    max-width: var(--max-w);
+  }
+  .subtitle {
+    font-size: clamp(18px, 2vw, 24px);
+    color: var(--fg-dim);
+    max-width: 820px;
+    line-height: 1.5;
+    margin: 0;
+  }
+  .summary {
+    font-size: clamp(18px, 2vw, 22px);
+    color: var(--fg-dim);
+    max-width: var(--max-w);
+    line-height: 1.55;
+    margin: 0 0 40px 0;
+  }
+  .keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 24px;
+    margin-top: 20px;
+  }
+  .keyword {
+    font-size: clamp(28px, 3.6vw, 48px);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    padding: 10px 22px;
+    border-radius: 999px;
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+  }
+  .keyword .n {
+    color: var(--accent);
+    margin-right: 12px;
+    font-variant-numeric: tabular-nums;
+  }
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+  .tag {
+    font-size: 12px;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-soft);
+    padding: 4px 10px;
+    border-radius: 999px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .sources {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: var(--max-w);
+  }
+  .source {
+    display: flex;
+    gap: 14px;
+    align-items: baseline;
+    padding: 14px 18px;
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--fg);
+    transition: border-color 0.15s, transform 0.15s;
+  }
+  .source:hover {
+    border-color: var(--accent);
+    transform: translateX(2px);
+  }
+  .source .pub {
+    font-size: 13px;
+    color: var(--fg-muted);
+    min-width: 120px;
+    flex-shrink: 0;
+  }
+  .source .ttl {
+    font-size: 16px;
+    color: var(--fg);
+    flex: 1;
+    line-height: 1.4;
+  }
+  .source .dt {
+    font-size: 13px;
+    color: var(--fg-muted);
+    font-variant-numeric: tabular-nums;
+    flex-shrink: 0;
+  }
+  .quick-hits {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: var(--max-w);
+  }
+  .hit {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--fg-dim);
+    text-decoration: none;
+    font-size: 17px;
+    line-height: 1.5;
+  }
+  .hit:last-child { border-bottom: none; }
+  .hit:hover .hit-text { color: var(--fg); }
+  .hit .bullet { color: var(--accent); flex-shrink: 0; }
+  .hit-text { flex: 1; }
+  .hit-pub { color: var(--fg-muted); font-size: 14px; flex-shrink: 0; }
+  .closing {
+    font-size: clamp(22px, 2.6vw, 32px);
+    color: var(--fg-dim);
+    max-width: var(--max-w);
+    line-height: 1.5;
+    font-weight: 400;
+    font-style: italic;
+  }
+  .meta-bar {
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+    font-size: 12px;
+    color: var(--fg-muted);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.04em;
+    pointer-events: none;
+  }
+  .meta-bar .brand { text-transform: uppercase; }
+  .progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 2px;
+    background: var(--accent);
+    width: 0%;
+    transition: width 0.3s ease;
+  }
+  .home-link {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px 8px 12px;
+    background: rgba(19, 19, 22, 0.85);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--fg-dim);
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    transition: border-color 0.15s, color 0.15s, background 0.15s;
+    z-index: 10;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .home-link:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(19, 19, 22, 0.95);
+  }
+  .home-link .arrow {
+    font-size: 15px;
+    line-height: 1;
+    transition: transform 0.15s;
+  }
+  .home-link:hover .arrow {
+    transform: translateX(-2px);
+  }
+  .hint {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 11px;
+    color: var(--fg-muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+  /* Mobile: ditch the slide-deck mode and let everything flow as a vertical scroll.
+     Deck UX needs a keyboard or precise clicks — neither fits a phone. */
+  @media (max-width: 768px) {
+    html, body {
+      overflow: auto;
+      height: auto;
+    }
+    .deck {
+      height: auto;
+      overflow: visible;
+    }
+    .slide {
+      position: static;
+      inset: auto;
+      display: flex !important;
+      justify-content: flex-start;
+      animation: none;
+      padding: 44px 22px;
+      min-height: auto;
+      border-bottom: 1px solid var(--border);
+    }
+    /* First slide needs extra top padding so the fixed home-link doesn't overlap the eyebrow */
+    .slide:first-of-type { padding-top: 68px; }
+    .slide:last-of-type { border-bottom: none; }
+    .home-link {
+      top: 14px;
+      left: 14px;
+      padding: 6px 12px 6px 10px;
+      font-size: 12px;
+    }
+    h1.title { font-size: 36px; margin-bottom: 16px; }
+    h2.headline { font-size: 26px; margin-bottom: 20px; }
+    .subtitle, .summary { font-size: 16px; }
+    .keyword { font-size: 22px; padding: 8px 16px; }
+    .source {
+      flex-direction: column;
+      gap: 4px;
+      padding: 12px 14px;
+    }
+    .source .pub { min-width: 0; font-size: 12px; }
+    .source .ttl { font-size: 15px; }
+    .source .dt { font-size: 12px; }
+    .hit { font-size: 15px; padding: 10px 0; }
+    .hit-pub { font-size: 12px; }
+    .progress, .meta-bar, .hint { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<a class="home-link" href="index.html" aria-label="아카이브 홈으로 돌아가기">
+  <span class="arrow">←</span>
+  <span>Archive</span>
+</a>
+<div class="deck" id="deck">
+
+      <section class="slide">
+        <div class="eyebrow">Weekly AI Trends · 2026-04-20</div>
+        <h1 class="title">이번 주 AI 트렌드</h1>
+        <p class="subtitle">2026-04-20 ~ 2026-04-26 · Claude Code를 중심으로</p>
+      </section>
+    
+
+      <section class="slide">
+        <div class="eyebrow">이번 주 키워드</div>
+        <h2 class="headline">이걸 알면 이번 주는 끝난 겁니다</h2>
+        <div class="keywords"><div class="keyword"><span class="n">01</span>Claude 품질 정상화</div><div class="keyword"><span class="n">02</span>코딩 에이전트 구독 재편</div><div class="keyword"><span class="n">03</span>Claude Code UX 강화</div><div class="keyword"><span class="n">04</span>Anthropic × AWS 25B 딜</div><div class="keyword"><span class="n">05</span>1M 컨텍스트 경쟁</div></div>
+      </section>
+    
+
+      <section class="slide">
+        <div class="eyebrow">트렌드 01 / 05</div>
+        <div class="tags"><span class="tag">claude code</span><span class="tag">quality</span><span class="tag">release</span></div>
+        <h2 class="headline">Claude Code 품질 이슈 3건 모두 정상화(v2.1.116)</h2>
+        <p class="summary">3월 초부터 누적된 세 가지 회귀 — 기본 effort 강등, 캐시 세션 삭제 버그, 장황한 프롬프트 — 가 4/20 v2.1.116에서 전부 해결. 4/22 v2.1.117에선 Pro/Max의 Opus 4.6·Sonnet 4.6 기본 effort가 다시 high로 올라갔다. 최근 &#x27;클로드가 멍청해졌다&#x27;는 체감의 원인이 공식적으로 정리된 주.</p>
+        <div class="sources"><a class="source" href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener"><span class="pub">Anthropic</span><span class="ttl">Claude Code 2.1.116–2.1.118 Changelog</span><span class="dt">2026-04-23</span></a><a class="source" href="https://www.theregister.com/2026/04/23/anthropic_says_it_has_fixed/" target="_blank" rel="noopener"><span class="pub">The Register</span><span class="ttl">Anthropic admits it dumbed down Claude with &#x27;upgrades&#x27;</span><span class="dt">2026-04-23</span></a></div>
+      </section>
+    
+
+      <section class="slide">
+        <div class="eyebrow">트렌드 02 / 05</div>
+        <div class="tags"><span class="tag">anthropic</span><span class="tag">infrastructure</span><span class="tag">funding</span></div>
+        <h2 class="headline">Amazon, Anthropic에 최대 $25B 추가 투자 + $100B AWS 커밋</h2>
+        <p class="summary">4/20 발표. 신규 $5B 즉시 투자, 커머셜 마일스톤 달성 시 $20B 추가. Anthropic은 10년간 AWS에 $100B 이상을 쓰고 연내 Trainium2/3 1GW 가동 예정. 최근 Claude Code 안정성 이슈의 배경에 &#x27;수요 폭증 → 인프라 부족&#x27;이 있었다는 점을 공식 인정한 딜.</p>
+        <div class="sources"><a class="source" href="https://www.cnbc.com/2026/04/20/amazon-invest-up-to-25-billion-in-anthropic-part-of-ai-infrastructure.html" target="_blank" rel="noopener"><span class="pub">CNBC</span><span class="ttl">Amazon to invest up to another $25 billion in Anthropic</span><span class="dt">2026-04-20</span></a><a class="source" href="https://www.geekwire.com/2026/amazon-doubles-down-on-anthropic-with-25b-investment-mirroring-its-openai-cloud-deal/" target="_blank" rel="noopener"><span class="pub">GeekWire</span><span class="ttl">Amazon doubles down on Anthropic with $25B investment</span><span class="dt">2026-04-20</span></a></div>
+      </section>
+    
+
+      <section class="slide">
+        <div class="eyebrow">트렌드 03 / 05</div>
+        <div class="tags"><span class="tag">claude code</span><span class="tag">pricing</span><span class="tag">subscription</span></div>
+        <h2 class="headline">Claude Code가 $20 Pro에서 사라질 뻔 — 2% A/B 테스트 후 롤백</h2>
+        <p class="summary">4/21부터 신규 Pro 가입자 일부에게 Claude Code 접근을 끊는 실험이 진행되다 랜딩/docs가 바로 되돌려졌다. Anthropic Head of Growth가 &#x27;신규 prosumer 약 2% 대상 테스트&#x27;임을 밝힘. 기존 Pro/Max 구독자는 영향 없음. Claude Code 사용층이 $20 모델로는 감당이 안 된다는 신호 — Max 이동 압력이 커짐.</p>
+        <div class="sources"><a class="source" href="https://www.theregister.com/2026/04/22/anthropic_removes_claude_code_pro/" target="_blank" rel="noopener"><span class="pub">The Register</span><span class="ttl">Anthropic tests reaction to yanking Claude Code from Pro</span><span class="dt">2026-04-22</span></a><a class="source" href="https://simonwillison.net/2026/Apr/22/claude-code-confusion/" target="_blank" rel="noopener"><span class="pub">Simon Willison</span><span class="ttl">Is Claude Code going to cost $100/month? Probably not — it&#x27;s all very confusing</span><span class="dt">2026-04-22</span></a></div>
+      </section>
+    
+
+      <section class="slide">
+        <div class="eyebrow">트렌드 04 / 05</div>
+        <div class="tags"><span class="tag">claude code</span><span class="tag">feature</span><span class="tag">ux</span></div>
+        <h2 class="headline">Claude Code v2.1.117/118: Opus 4.7 컨텍스트 1M 수정 + vim 모드 + hooks의 MCP 직접 호출</h2>
+        <p class="summary">v2.1.117에서 Opus 4.7의 컨텍스트 상한이 200K로 잘못 잡혀있던 문제를 1M로 교정. v2.1.118은 vim visual(v)/visual-line(V) 모드와 /usage 통합(= /cost + /stats), 사용자 정의 테마 전환을 추가. hooks가 MCP 툴을 type: &quot;mcp_tool&quot;로 바로 호출할 수 있게 되면서 자동화 훅이 훨씬 강해졌다.</p>
+        <div class="sources"><a class="source" href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener"><span class="pub">Anthropic</span><span class="ttl">Claude Code Changelog — 2.1.117 / 2.1.118</span><span class="dt">2026-04-23</span></a><a class="source" href="https://github.com/anthropics/claude-code/releases" target="_blank" rel="noopener"><span class="pub">GitHub</span><span class="ttl">anthropics/claude-code Releases</span><span class="dt">2026-04-23</span></a></div>
+      </section>
+    
+
+      <section class="slide">
+        <div class="eyebrow">트렌드 05 / 05</div>
+        <div class="tags"><span class="tag">copilot</span><span class="tag">pricing</span><span class="tag">coding-agent</span></div>
+        <h2 class="headline">GitHub Copilot도 가격 재조정 — Opus 4.7은 Pro+ 전용으로</h2>
+        <p class="summary">4/20 업데이트로 개인 Copilot 플랜이 재편. Pro에선 Opus 계열이 빠지고, Opus 4.7은 Pro+에서만 사용. 4.5/4.6은 Pro+에서도 단계적 제거. 4/22엔 Copilot CLI에 C++ 정적 분석(Microsoft C++ Language Server)이 퍼블릭 프리뷰로 추가. 코딩 에이전트 상위 모델 사용 비용이 올라가는 공통 흐름.</p>
+        <div class="sources"><a class="source" href="https://github.blog/changelog/2026-04-20-changes-to-github-copilot-plans-for-individuals/" target="_blank" rel="noopener"><span class="pub">GitHub</span><span class="ttl">Changes to GitHub Copilot plans for individuals</span><span class="dt">2026-04-20</span></a><a class="source" href="https://github.blog/changelog/2026-04-22-c-code-intelligence-for-github-copilot-cli-in-public-preview/" target="_blank" rel="noopener"><span class="pub">GitHub</span><span class="ttl">C++ code intelligence for GitHub Copilot CLI in public preview</span><span class="dt">2026-04-22</span></a></div>
+      </section>
+    
+
+      <section class="slide">
+        <div class="eyebrow">단신 Quick Hits</div>
+        <h2 class="headline">짧게 짚고 넘어갈 것들</h2>
+        <div class="quick-hits"><a class="hit" href="https://www.bloomberg.com/news/articles/2026-04-24/deepseek-unveils-newest-flagship-a-year-after-ai-breakthrough" target="_blank" rel="noopener"><span class="bullet">›</span><span class="hit-text">DeepSeek V4 Flash/Pro 프리뷰 공개 — 1M 컨텍스트, Hybrid Attention, 코딩 벤치 최상위권 주장</span><span class="hit-pub">Bloomberg</span></a><a class="hit" href="https://releasebot.io/updates/openai" target="_blank" rel="noopener"><span class="bullet">›</span><span class="hit-text">OpenAI ChatGPT Images 2.0 — 생각하고 생성하는 이미지 모델</span><span class="hit-pub">OpenAI</span></a><a class="hit" href="https://foreignpolicy.com/2026/04/20/claude-mythos-preview-anthropic-project-glasswing-cybersecurity-ai-hacking-danger/" target="_blank" rel="noopener"><span class="bullet">›</span><span class="hit-text">Claude Mythos Preview — Project Glasswing으로 보안 파트너만 제한 공개(미GA 유지)</span><span class="hit-pub">Foreign Policy</span></a><a class="hit" href="https://windsurf.com/changelog" target="_blank" rel="noopener"><span class="bullet">›</span><span class="hit-text">Windsurf Adaptive 라우터 모델 전환 버그 수정 + 피해 사용자 쿼터 리셋</span><span class="hit-pub">Windsurf</span></a><a class="hit" href="https://blog.modelcontextprotocol.io/posts/2026-04-08-maintainer-update/" target="_blank" rel="noopener"><span class="bullet">›</span><span class="hit-text">MCP 메인테이너팀 확대 — Den Delimarsky가 Lead, Clare Liguori가 Core로 합류</span><span class="hit-pub">MCP Blog</span></a></div>
+      </section>
+    
+
+      <section class="slide">
+        <div class="eyebrow">마무리</div>
+        <h2 class="headline">이번 주 한 줄</h2>
+        <p class="closing">“품질은 다시 정상화됐고 Pro 가격은 흔들리는 중 — Claude Code 유저라면 Max 여부와 effort 설정을 이번 주말에 한 번 점검해볼 타이밍.”</p>
+      </section>
+    
+</div>
+<div class="meta-bar">
+  <div class="brand">Weekly AI Trends · 2026-04-20</div>
+  <div><span id="cur">1</span> / <span id="total">1</span></div>
+</div>
+<div class="hint">← → space · F for fullscreen</div>
+<script>
+(function () {
+  // On mobile we render everything stacked as a scrollable article, so skip the deck logic entirely.
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
+  if (isMobile) return;
+
+  const slides = document.querySelectorAll('.slide');
+  const total = slides.length;
+  let i = 0;
+  document.getElementById('total').textContent = total;
+  function show(n) {
+    i = (n + total) % total;
+    slides.forEach((s, idx) => s.classList.toggle('active', idx === i));
+    document.getElementById('cur').textContent = i + 1;
+    document.getElementById('progress').style.width = ((i + 1) / total * 100) + '%';
+  }
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); show(i + 1); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); show(i - 1); }
+    else if (e.key === 'Home') { show(0); }
+    else if (e.key === 'End') { show(total - 1); }
+    else if (e.key === 'f' || e.key === 'F') {
+      if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+      else document.exitFullscreen();
+    }
+  });
+  document.addEventListener('click', (e) => {
+    if (e.target.closest('a')) return;
+    show(i + 1);
+  });
+  show(0);
+})();
+</script>
+</body>
+</html>
