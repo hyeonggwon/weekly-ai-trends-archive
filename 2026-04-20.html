@@ -326,66 +326,66 @@
       <section class="slide">
         <div class="eyebrow">이번 주 키워드</div>
         <h2 class="headline">이걸 알면 이번 주는 끝난 겁니다</h2>
-        <div class="keywords"><div class="keyword"><span class="n">01</span>Claude 품질 정상화</div><div class="keyword"><span class="n">02</span>코딩 에이전트 구독 재편</div><div class="keyword"><span class="n">03</span>Claude Code UX 강화</div><div class="keyword"><span class="n">04</span>Anthropic × AWS 25B 딜</div><div class="keyword"><span class="n">05</span>1M 컨텍스트 경쟁</div></div>
+        <div class="keywords"><div class="keyword"><span class="n">01</span>Pro 플랜 해프닝</div><div class="keyword"><span class="n">02</span>Claude Code 2.1.117</div><div class="keyword"><span class="n">03</span>MCP 보안 재점검</div><div class="keyword"><span class="n">04</span>Copilot Individual 개편</div><div class="keyword"><span class="n">05</span>Opus 4.7 여진</div></div>
       </section>
     
 
       <section class="slide">
         <div class="eyebrow">트렌드 01 / 05</div>
-        <div class="tags"><span class="tag">claude code</span><span class="tag">quality</span><span class="tag">release</span></div>
-        <h2 class="headline">Claude Code 품질 이슈 3건 모두 정상화(v2.1.116)</h2>
-        <p class="summary">3월 초부터 누적된 세 가지 회귀 — 기본 effort 강등, 캐시 세션 삭제 버그, 장황한 프롬프트 — 가 4/20 v2.1.116에서 전부 해결. 4/22 v2.1.117에선 Pro/Max의 Opus 4.6·Sonnet 4.6 기본 effort가 다시 high로 올라갔다. 최근 &#x27;클로드가 멍청해졌다&#x27;는 체감의 원인이 공식적으로 정리된 주.</p>
-        <div class="sources"><a class="source" href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener"><span class="pub">Anthropic</span><span class="ttl">Claude Code 2.1.116–2.1.118 Changelog</span><span class="dt">2026-04-23</span></a><a class="source" href="https://www.theregister.com/2026/04/23/anthropic_says_it_has_fixed/" target="_blank" rel="noopener"><span class="pub">The Register</span><span class="ttl">Anthropic admits it dumbed down Claude with &#x27;upgrades&#x27;</span><span class="dt">2026-04-23</span></a></div>
+        <div class="tags"><span class="tag">pricing</span><span class="tag">claude-code</span></div>
+        <h2 class="headline">Anthropic, Claude Code를 $20 Pro에서 조용히 뺐다가 되돌림</h2>
+        <p class="summary">4월 21일 Pro 플랜 설명 문서에서 Claude Code가 사라졌다가, 몇 시간 뒤 &#x27;신규 가입 2%에 한한 A/B 테스트&#x27;라며 되돌려짐. Max 5x($100) 이상에서만 쓰라는 신호로 읽히면서 &#x27;에이전트 워크플로의 진짜 비용&#x27; 논쟁이 개발자 커뮤니티를 달궜다. 당분간 Pro에 남지만, 정책 방향은 분명히 위쪽을 본다.</p>
+        <div class="sources"><a class="source" href="https://simonwillison.net/2026/Apr/22/claude-code-confusion/" target="_blank" rel="noopener"><span class="pub">Simon Willison</span><span class="ttl">Is Claude Code going to cost $100/month?</span><span class="dt">2026-04-22</span></a><a class="source" href="https://finance.biggo.com/news/202604240157_anthropic-tests-claude-code-removal-pro-plan" target="_blank" rel="noopener"><span class="pub">BigGo Finance</span><span class="ttl">Anthropic Quietly Tests Removing Claude Code from Pro Plan</span><span class="dt">2026-04-24</span></a></div>
       </section>
     
 
       <section class="slide">
         <div class="eyebrow">트렌드 02 / 05</div>
-        <div class="tags"><span class="tag">anthropic</span><span class="tag">infrastructure</span><span class="tag">funding</span></div>
-        <h2 class="headline">Amazon, Anthropic에 최대 $25B 추가 투자 + $100B AWS 커밋</h2>
-        <p class="summary">4/20 발표. 신규 $5B 즉시 투자, 커머셜 마일스톤 달성 시 $20B 추가. Anthropic은 10년간 AWS에 $100B 이상을 쓰고 연내 Trainium2/3 1GW 가동 예정. 최근 Claude Code 안정성 이슈의 배경에 &#x27;수요 폭증 → 인프라 부족&#x27;이 있었다는 점을 공식 인정한 딜.</p>
-        <div class="sources"><a class="source" href="https://www.cnbc.com/2026/04/20/amazon-invest-up-to-25-billion-in-anthropic-part-of-ai-infrastructure.html" target="_blank" rel="noopener"><span class="pub">CNBC</span><span class="ttl">Amazon to invest up to another $25 billion in Anthropic</span><span class="dt">2026-04-20</span></a><a class="source" href="https://www.geekwire.com/2026/amazon-doubles-down-on-anthropic-with-25b-investment-mirroring-its-openai-cloud-deal/" target="_blank" rel="noopener"><span class="pub">GeekWire</span><span class="ttl">Amazon doubles down on Anthropic with $25B investment</span><span class="dt">2026-04-20</span></a></div>
+        <div class="tags"><span class="tag">claude-code</span><span class="tag">release</span><span class="tag">plugins</span></div>
+        <h2 class="headline">Claude Code 2.1.117 — 병렬 서브에이전트·플러그인 allow-list·동시 MCP</h2>
+        <p class="summary">외부 빌드에서 forked subagents, 재시작해도 유지되는 모델 선택, MCP 서버 동시 연결로 기동 단축. 관리형 설정의 blockedMarketplaces·strictKnownMarketplaces가 install/update/refresh/autoupdate 전 경로에 걸쳐 강제됨. 조직에서 Claude Code 배포를 잠그기가 한결 쉬워진 한 주.</p>
+        <div class="sources"><a class="source" href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md" target="_blank" rel="noopener"><span class="pub">GitHub — anthropics/claude-code</span><span class="ttl">Claude Code CHANGELOG (main)</span><span class="dt">2026-04-22</span></a><a class="source" href="https://releasebot.io/updates/anthropic/claude-code" target="_blank" rel="noopener"><span class="pub">Releasebot</span><span class="ttl">Claude Code Release Notes · April 2026</span><span class="dt">2026-04-22</span></a></div>
       </section>
     
 
       <section class="slide">
         <div class="eyebrow">트렌드 03 / 05</div>
-        <div class="tags"><span class="tag">claude code</span><span class="tag">pricing</span><span class="tag">subscription</span></div>
-        <h2 class="headline">Claude Code가 $20 Pro에서 사라질 뻔 — 2% A/B 테스트 후 롤백</h2>
-        <p class="summary">4/21부터 신규 Pro 가입자 일부에게 Claude Code 접근을 끊는 실험이 진행되다 랜딩/docs가 바로 되돌려졌다. Anthropic Head of Growth가 &#x27;신규 prosumer 약 2% 대상 테스트&#x27;임을 밝힘. 기존 Pro/Max 구독자는 영향 없음. Claude Code 사용층이 $20 모델로는 감당이 안 된다는 신호 — Max 이동 압력이 커짐.</p>
-        <div class="sources"><a class="source" href="https://www.theregister.com/2026/04/22/anthropic_removes_claude_code_pro/" target="_blank" rel="noopener"><span class="pub">The Register</span><span class="ttl">Anthropic tests reaction to yanking Claude Code from Pro</span><span class="dt">2026-04-22</span></a><a class="source" href="https://simonwillison.net/2026/Apr/22/claude-code-confusion/" target="_blank" rel="noopener"><span class="pub">Simon Willison</span><span class="ttl">Is Claude Code going to cost $100/month? Probably not — it&#x27;s all very confusing</span><span class="dt">2026-04-22</span></a></div>
+        <div class="tags"><span class="tag">mcp</span><span class="tag">security</span></div>
+        <h2 class="headline">MCP &#x27;RCE 설계 결함&#x27; 논쟁 — Anthropic은 &#x27;의도된 동작&#x27;</h2>
+        <p class="summary">OX Security가 STDIO 실행 모델을 겨냥해 약 20만대 추정 서버에 걸리는 원격 코드 실행 경로를 공개. Anthropic은 &#x27;디폴트는 안전하며 sanitization은 개발자 몫&#x27;으로 선을 그음. Windsurf·Cursor 포함 IDE 제로클릭 주입, 마켓플레이스 악성 패키지 등 4가지 공격 패턴이 이번 주 Claude Weekly 정리에도 올라옴.</p>
+        <div class="sources"><a class="source" href="https://www.theregister.com/2026/04/16/anthropic_mcp_design_flaw/" target="_blank" rel="noopener"><span class="pub">The Register</span><span class="ttl">MCP &#x27;design flaw&#x27; puts 200k servers at risk</span><span class="dt">2026-04-16</span></a><a class="source" href="https://www.bighatgroup.com/blog/claude-weekly-2026-04-23/" target="_blank" rel="noopener"><span class="pub">Big Hat Group</span><span class="ttl">Claude Weekly: Opus 4.7 Lands, Claude Design Launches, and MCP&#x27;s First Security Reckoning</span><span class="dt">2026-04-23</span></a></div>
       </section>
     
 
       <section class="slide">
         <div class="eyebrow">트렌드 04 / 05</div>
-        <div class="tags"><span class="tag">claude code</span><span class="tag">feature</span><span class="tag">ux</span></div>
-        <h2 class="headline">Claude Code v2.1.117/118: Opus 4.7 컨텍스트 1M 수정 + vim 모드 + hooks의 MCP 직접 호출</h2>
-        <p class="summary">v2.1.117에서 Opus 4.7의 컨텍스트 상한이 200K로 잘못 잡혀있던 문제를 1M로 교정. v2.1.118은 vim visual(v)/visual-line(V) 모드와 /usage 통합(= /cost + /stats), 사용자 정의 테마 전환을 추가. hooks가 MCP 툴을 type: &quot;mcp_tool&quot;로 바로 호출할 수 있게 되면서 자동화 훅이 훨씬 강해졌다.</p>
-        <div class="sources"><a class="source" href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener"><span class="pub">Anthropic</span><span class="ttl">Claude Code Changelog — 2.1.117 / 2.1.118</span><span class="dt">2026-04-23</span></a><a class="source" href="https://github.com/anthropics/claude-code/releases" target="_blank" rel="noopener"><span class="pub">GitHub</span><span class="ttl">anthropics/claude-code Releases</span><span class="dt">2026-04-23</span></a></div>
+        <div class="tags"><span class="tag">copilot</span><span class="tag">pricing</span></div>
+        <h2 class="headline">GitHub Copilot Individual 플랜 대수술 — 신규 가입 일시 중단·Opus Pro 제외</h2>
+        <p class="summary">4월 21일 GitHub가 Individual 플랜의 신규 가입을 멈추고 사용 한도를 죄고 모델 접근을 재구성. Opus 모델은 Pro에서 빠지고 Pro+에만 남음. 장시간·병렬 에이전트 세션이 &#x27;원래 과금 설계&#x27;보다 훨씬 많이 먹는 걸 인정한 공식 변경.</p>
+        <div class="sources"><a class="source" href="https://github.blog/news-insights/company-news/changes-to-github-copilot-individual-plans/" target="_blank" rel="noopener"><span class="pub">GitHub Blog</span><span class="ttl">Changes to GitHub Copilot Individual plans</span><span class="dt">2026-04-21</span></a></div>
       </section>
     
 
       <section class="slide">
         <div class="eyebrow">트렌드 05 / 05</div>
-        <div class="tags"><span class="tag">copilot</span><span class="tag">pricing</span><span class="tag">coding-agent</span></div>
-        <h2 class="headline">GitHub Copilot도 가격 재조정 — Opus 4.7은 Pro+ 전용으로</h2>
-        <p class="summary">4/20 업데이트로 개인 Copilot 플랜이 재편. Pro에선 Opus 계열이 빠지고, Opus 4.7은 Pro+에서만 사용. 4.5/4.6은 Pro+에서도 단계적 제거. 4/22엔 Copilot CLI에 C++ 정적 분석(Microsoft C++ Language Server)이 퍼블릭 프리뷰로 추가. 코딩 에이전트 상위 모델 사용 비용이 올라가는 공통 흐름.</p>
-        <div class="sources"><a class="source" href="https://github.blog/changelog/2026-04-20-changes-to-github-copilot-plans-for-individuals/" target="_blank" rel="noopener"><span class="pub">GitHub</span><span class="ttl">Changes to GitHub Copilot plans for individuals</span><span class="dt">2026-04-20</span></a><a class="source" href="https://github.blog/changelog/2026-04-22-c-code-intelligence-for-github-copilot-cli-in-public-preview/" target="_blank" rel="noopener"><span class="pub">GitHub</span><span class="ttl">C++ code intelligence for GitHub Copilot CLI in public preview</span><span class="dt">2026-04-22</span></a></div>
+        <div class="tags"><span class="tag">opus-4-7</span><span class="tag">claude-design</span></div>
+        <h2 class="headline">Opus 4.7 여진 — Claude Design 확산과 /context 과다 집계 핫픽스</h2>
+        <p class="summary">4월 16일 공개된 Opus 4.7(SWE-bench Verified 87.6%, Pro 64.3%)를 기반으로 Claude Design이 Pro·Max·Team·Enterprise에 전개되는 한편, 이번 주 Claude Code 2.1.117에서 Opus 4.7 세션의 /context 퍼센트가 부풀려져 autocompact가 너무 일찍 돌던 버그를 수정. 신모델을 실전 워크플로에 태우는 과정의 잔여 이슈들이 정리되는 주.</p>
+        <div class="sources"><a class="source" href="https://www.anthropic.com/news/claude-opus-4-7" target="_blank" rel="noopener"><span class="pub">Anthropic</span><span class="ttl">Introducing Claude Opus 4.7</span><span class="dt">2026-04-16</span></a><a class="source" href="https://www.anthropic.com/news/claude-design-anthropic-labs" target="_blank" rel="noopener"><span class="pub">Anthropic</span><span class="ttl">Introducing Claude Design by Anthropic Labs</span><span class="dt">2026-04-17</span></a></div>
       </section>
     
 
       <section class="slide">
         <div class="eyebrow">단신 Quick Hits</div>
         <h2 class="headline">짧게 짚고 넘어갈 것들</h2>
-        <div class="quick-hits"><a class="hit" href="https://www.bloomberg.com/news/articles/2026-04-24/deepseek-unveils-newest-flagship-a-year-after-ai-breakthrough" target="_blank" rel="noopener"><span class="bullet">›</span><span class="hit-text">DeepSeek V4 Flash/Pro 프리뷰 공개 — 1M 컨텍스트, Hybrid Attention, 코딩 벤치 최상위권 주장</span><span class="hit-pub">Bloomberg</span></a><a class="hit" href="https://releasebot.io/updates/openai" target="_blank" rel="noopener"><span class="bullet">›</span><span class="hit-text">OpenAI ChatGPT Images 2.0 — 생각하고 생성하는 이미지 모델</span><span class="hit-pub">OpenAI</span></a><a class="hit" href="https://foreignpolicy.com/2026/04/20/claude-mythos-preview-anthropic-project-glasswing-cybersecurity-ai-hacking-danger/" target="_blank" rel="noopener"><span class="bullet">›</span><span class="hit-text">Claude Mythos Preview — Project Glasswing으로 보안 파트너만 제한 공개(미GA 유지)</span><span class="hit-pub">Foreign Policy</span></a><a class="hit" href="https://windsurf.com/changelog" target="_blank" rel="noopener"><span class="bullet">›</span><span class="hit-text">Windsurf Adaptive 라우터 모델 전환 버그 수정 + 피해 사용자 쿼터 리셋</span><span class="hit-pub">Windsurf</span></a><a class="hit" href="https://blog.modelcontextprotocol.io/posts/2026-04-08-maintainer-update/" target="_blank" rel="noopener"><span class="bullet">›</span><span class="hit-text">MCP 메인테이너팀 확대 — Den Delimarsky가 Lead, Clare Liguori가 Core로 합류</span><span class="hit-pub">MCP Blog</span></a></div>
+        <div class="quick-hits"><a class="hit" href="https://www.anthropic.com/news/google-broadcom-partnership-compute" target="_blank" rel="noopener"><span class="bullet">›</span><span class="hit-text">Anthropic·Google·Broadcom 컴퓨트 확장 — 2027년부터 수 GW TPU, 런레이트 $30B 돌파</span><span class="hit-pub">Anthropic</span></a><a class="hit" href="https://cursor.com/blog/cursor-3" target="_blank" rel="noopener"><span class="bullet">›</span><span class="hit-text">Cursor 3 — &#x27;에이전트 우선&#x27; UI, 병렬 Agents Window·Canvases·자가 호스팅 클라우드 에이전트</span><span class="hit-pub">Cursor</span></a><a class="hit" href="https://platform.claude.com/docs/en/managed-agents/overview" target="_blank" rel="noopener"><span class="bullet">›</span><span class="hit-text">Claude Managed Agents, 세션·샌드박스·자격증명 호스팅 + 메모리 공용 — Notion/Rakuten/Sentry 프로덕션 사례</span><span class="hit-pub">Anthropic</span></a><a class="hit" href="https://code.claude.com/docs/en/remote-control" target="_blank" rel="noopener"><span class="bullet">›</span><span class="hit-text">Claude Code Remote Control — /context, /exit, /reload-plugins가 모바일·웹 클라이언트에서 동작</span><span class="hit-pub">Claude Code Docs</span></a></div>
       </section>
     
 
       <section class="slide">
         <div class="eyebrow">마무리</div>
         <h2 class="headline">이번 주 한 줄</h2>
-        <p class="closing">“품질은 다시 정상화됐고 Pro 가격은 흔들리는 중 — Claude Code 유저라면 Max 여부와 effort 설정을 이번 주말에 한 번 점검해볼 타이밍.”</p>
+        <p class="closing">“요약: 이번 주는 &#x27;에이전트 경제가 본격적으로 돈 이야기로 왔다&#x27;. 다음 주는 Pro 정책의 실제 착지, MCP 보안 커뮤니티 대응, Claude Design → Claude Code 핸드오프 실사용기를 주목.”</p>
       </section>
     
 </div>
