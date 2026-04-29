@@ -135,6 +135,20 @@
     color: var(--fg-muted);
     font-size: 16px;
   }
+  .error {
+    text-align: center;
+    padding: 80px 24px;
+    color: var(--fg-muted);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .error code {
+    background: var(--bg-elev);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 13px;
+    color: var(--fg-dim);
+  }
   footer {
     margin-top: 80px;
     padding-top: 32px;
@@ -160,20 +174,76 @@
     <div class="eyebrow">Weekly AI Trends · Archive</div>
     <h1>이번 주 AI, 한 장으로</h1>
     <p class="tagline">Claude Code와 Anthropic 생태계를 중심으로 한 주간 AI 트렌드 아카이브입니다. 매주 월요일 갱신.</p>
-    <div class="counter">총 1개 브리프 · 마지막 업데이트 2026-04-27</div>
+    <div class="counter" id="counter">불러오는 중…</div>
   </header>
-  <div class="grid">
-  <a class="card" href="2026-04-27.html">
-    <div class="card-date">2026-04-20 ~ 2026-04-26 · Claude Code를 중심으로</div>
-    <h2 class="card-title">이번 주 AI 트렌드</h2>
-    <div class="card-keywords"><span class="kw">Anthropic 인프라 메가딜</span><span class="kw">Claude Code: Opus 4.7 디폴트 + 1M 컨텍스트</span><span class="kw">코딩 에이전트 시장 재편</span></div>
-    <div class="card-arrow">→</div>
-  </a>
-</div>
+  <main id="main">
+    <div class="empty">불러오는 중…</div>
+  </main>
   <footer>
     <div>Weekly AI Trends</div>
     <div>Auto-generated · Static site</div>
   </footer>
 </div>
+<script>
+(async function () {
+  const main = document.getElementById('main');
+  const counter = document.getElementById('counter');
+
+  function escape(s) {
+    return String(s ?? '')
+      .replaceAll('&', '&amp;')
+      .replaceAll('<', '&lt;')
+      .replaceAll('>', '&gt;')
+      .replaceAll('"', '&quot;')
+      .replaceAll("'", '&#39;');
+  }
+
+  function renderCards(items) {
+    if (!items.length) {
+      main.innerHTML = '<div class="empty">아직 쌓인 브리프가 없습니다. 첫 주가 기다려집니다.</div>';
+      counter.textContent = '총 0개 브리프';
+      return;
+    }
+    const cards = items.map(m => {
+      const date = escape(m.date || '');
+      const title = escape(m.title || '이번 주 AI 트렌드');
+      const subtitle = escape(m.subtitle || '');
+      const href = escape(m.html_filename || `${date}.html`);
+      const kws = (m.keywords || []).slice(0, 3)
+        .map(k => `<span class="kw">${escape(k)}</span>`)
+        .join('');
+      const topLine = subtitle || date;
+      return `
+        <a class="card" href="${href}">
+          <div class="card-date">${escape(topLine)}</div>
+          <h2 class="card-title">${title}</h2>
+          <div class="card-keywords">${kws}</div>
+          <div class="card-arrow">→</div>
+        </a>`;
+    }).join('');
+    main.innerHTML = `<div class="grid">${cards}</div>`;
+    counter.textContent = `총 ${items.length}개 브리프 · 마지막 업데이트 ${escape(items[0].date || '—')}`;
+  }
+
+  try {
+    // Cache-bust: append a timestamp so Vercel's CDN doesn't serve stale briefs.json
+    const res = await fetch('briefs.json?_=' + Date.now(), { cache: 'no-store' });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    if (!Array.isArray(data)) throw new Error('briefs.json is not an array');
+    // Always sort by date desc — defensive, even though update_archive.py also sorts.
+    data.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+    renderCards(data);
+  } catch (err) {
+    main.innerHTML = `
+      <div class="error">
+        <p>briefs.json을 불러오지 못했습니다.</p>
+        <p><code>${escape(err.message)}</code></p>
+        <p>아카이브가 처음 배포되는 중이거나, 매니페스트 파일이 누락됐을 수 있습니다.</p>
+      </div>`;
+    counter.textContent = '—';
+  }
+})();
+</script>
 </body>
 </html>

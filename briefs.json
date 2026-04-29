@@ -1,0 +1,24 @@
+[
+  {
+    "date": "2026-04-27",
+    "title": "이번 주 AI 트렌드",
+    "subtitle": "2026-04-20 ~ 2026-04-26 · Claude Code를 중심으로",
+    "keywords": [
+      "Anthropic 인프라 메가딜",
+      "Claude Code: Opus 4.7 디폴트 + 1M 컨텍스트",
+      "코딩 에이전트 시장 재편"
+    ],
+    "html_filename": "briefs/2026-04-27.html"
+  },
+  {
+    "date": "2026-04-20",
+    "title": "이번 주 AI 트렌드",
+    "subtitle": "2026-04-20 ~ 2026-04-26 · Claude Code를 중심으로",
+    "keywords": [
+      "AI 코딩 구독 모델 재편",
+      "$25B 컴퓨트 슈퍼사이클",
+      "GPT-5.5 vs Opus 4.7"
+    ],
+    "html_filename": "briefs/2026-04-20.html"
+  }
+]
