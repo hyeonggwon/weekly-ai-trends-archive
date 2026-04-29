@@ -10,4 +10,7 @@
 *~
 .DS_Store
 
+# Markdown
+RUN-NOTES.md
+
 # Vercel deploy token — never commit
