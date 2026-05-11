@@ -1,5 +1,18 @@
 [
   {
+    "date": "2026-05-11",
+    "title": "이번 주 AI 트렌드",
+    "subtitle": "2026-05-04 ~ 2026-05-10 · Claude Code를 중심으로",
+    "keywords": [
+      "Code with Claude 2026",
+      "에이전트 자기개선·오케스트레이션",
+      "Claude Code 한도 2배 (SpaceX 컴퓨트)",
+      "금융 에이전트 + Opus 4.7",
+      "GPT-5.5 Instant 기본 전환"
+    ],
+    "html_filename": "briefs/2026-05-11.html"
+  },
+  {
     "date": "2026-05-04",
     "title": "이번 주 AI 트렌드",
     "subtitle": "2026-04-27 ~ 2026-05-03 · Claude Code를 중심으로",
