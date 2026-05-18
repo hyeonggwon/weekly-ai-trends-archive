@@ -1,5 +1,18 @@
 [
   {
+    "date": "2026-05-18",
+    "title": "이번 주 AI 트렌드",
+    "subtitle": "2026-05-11 ~ 2026-05-17 · Claude Code를 중심으로",
+    "keywords": [
+      "Claude Code Agent View 정식 본격화",
+      "Fast mode = Opus 4.7 디폴트",
+      "Claude for Small Business 출시",
+      "Anthropic × Gates $200M 파트너십",
+      "Gemini Intelligence 안드로이드 진격"
+    ],
+    "html_filename": "briefs/2026-05-18.html"
+  },
+  {
     "date": "2026-05-11",
     "title": "이번 주 AI 트렌드",
     "subtitle": "2026-05-04 ~ 2026-05-10 · Claude Code를 중심으로",
