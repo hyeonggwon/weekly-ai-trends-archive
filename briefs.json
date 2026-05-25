@@ -1,5 +1,17 @@
 [
   {
+    "date": "2026-05-25",
+    "title": "이번 주 AI 트렌드",
+    "subtitle": "2026-05-18 ~ 2026-05-24 · Claude Code를 중심으로",
+    "keywords": [
+      "사설 에이전트 인프라",
+      "Flash급 모델의 코딩 1티어 진입",
+      "에이전트-우선 IDE 표준화",
+      "Claude Code 운영 안정성"
+    ],
+    "html_filename": "briefs/2026-05-25.html"
+  },
+  {
     "date": "2026-05-18",
     "title": "이번 주 AI 트렌드",
     "subtitle": "2026-05-11 ~ 2026-05-17 · Claude Code를 중심으로",
