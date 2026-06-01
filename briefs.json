@@ -1,5 +1,16 @@
 [
   {
+    "date": "2026-06-01",
+    "title": "이번 주 AI 트렌드",
+    "subtitle": "2026-05-25 ~ 2026-05-31 · Claude Code를 중심으로",
+    "keywords": [
+      "Claude Opus 4.8 출시",
+      "Dynamic Workflows · 1000 subagent",
+      "Anthropic Series H $965B"
+    ],
+    "html_filename": "briefs/2026-06-01.html"
+  },
+  {
     "date": "2026-05-25",
     "title": "이번 주 AI 트렌드",
     "subtitle": "2026-05-18 ~ 2026-05-24 · Claude Code를 중심으로",
