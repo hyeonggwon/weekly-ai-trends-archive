@@ -1,5 +1,16 @@
 [
   {
+    "date": "2026-06-08",
+    "title": "이번 주 AI 트렌드",
+    "subtitle": "2026-06-01 ~ 2026-06-07 · Claude Code를 중심으로",
+    "keywords": [
+      "AI 코딩 도구 과금 대전환",
+      "Anthropic IPO 카운트다운",
+      "Claude Code 안정화 업데이트"
+    ],
+    "html_filename": "briefs/2026-06-08.html"
+  },
+  {
     "date": "2026-06-01",
     "title": "이번 주 AI 트렌드",
     "subtitle": "2026-05-25 ~ 2026-05-31 · Claude Code를 중심으로",
