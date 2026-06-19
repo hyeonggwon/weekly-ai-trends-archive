@@ -1,5 +1,16 @@
 [
   {
+    "date": "2026-06-15",
+    "title": "이번 주 AI 트렌드",
+    "subtitle": "2026-06-08 ~ 2026-06-14 · Claude Code를 중심으로",
+    "keywords": [
+      "Mythos급 모델 일반 공개 (Fable 5)",
+      "사흘 만의 수출통제 봉쇄",
+      "Claude Code, Fable 5 당일 통합"
+    ],
+    "html_filename": "briefs/2026-06-15.html"
+  },
+  {
     "date": "2026-06-08",
     "title": "이번 주 AI 트렌드",
     "subtitle": "2026-06-01 ~ 2026-06-07 · Claude Code를 중심으로",
