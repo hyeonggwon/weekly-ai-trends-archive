@@ -1,5 +1,16 @@
 [
   {
+    "date": "2026-07-27",
+    "title": "이번 주 AI 트렌드",
+    "subtitle": "2026-07-20 ~ 2026-07-26 · Claude Code를 중심으로",
+    "keywords": [
+      "Opus 5 출시 — 절반 값 프론티어",
+      "Claude Code, Opus 5 기본값",
+      "효율·가격 경쟁 가속 (Gemini 3.6 Flash)"
+    ],
+    "html_filename": "briefs/2026-07-27.html"
+  },
+  {
     "date": "2026-07-06",
     "title": "이번 주 AI 트렌드",
     "subtitle": "2026-06-29 ~ 2026-07-05 · Claude Code를 중심으로",
