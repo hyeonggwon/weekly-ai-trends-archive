@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>이번 주 AI 트렌드 — 2026-08-31</title>
+<style>
+  :root {
+    --bg: #0a0a0b;
+    --bg-elev: #131316;
+    --fg: #f4f4f5;
+    --fg-dim: #a1a1aa;
+    --fg-muted: #71717a;
+    --accent: #d97757;
+    --accent-soft: rgba(217, 119, 87, 0.15);
+    --border: #27272a;
+    --max-w: 1100px;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Apple SD Gothic Neo",
+                 "Segoe UI", "Noto Sans KR", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow: hidden;
+    letter-spacing: -0.01em;
+  }
+  .deck {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  .slide {
+    position: absolute;
+    inset: 0;
+    display: none;
+    padding: 8vh 10vw;
+    flex-direction: column;
+    justify-content: center;
+    animation: fade 0.35s ease;
+  }
+  .slide.active { display: flex; }
+  @keyframes fade {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .eyebrow {
+    font-size: 13px;
+    color: var(--fg-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-bottom: 28px;
+  }
+  h1.title {
+    font-size: clamp(40px, 6.4vw, 88px);
+    font-weight: 700;
+    line-height: 1.05;
+    margin: 0 0 24px 0;
+    letter-spacing: -0.03em;
+  }
+  h2.headline {
+    font-size: clamp(30px, 4.4vw, 56px);
+    font-weight: 600;
+    line-height: 1.15;
+    margin: 0 0 28px 0;
+    letter-spacing: -0.02em;
+    max-width: var(--max-w);
+  }
+  .subtitle {
+    font-size: clamp(18px, 2vw, 24px);
+    color: var(--fg-dim);
+    max-width: 820px;
+    line-height: 1.5;
+    margin: 0;
+  }
+  .summary {
+    font-size: clamp(18px, 2vw, 22px);
+    color: var(--fg-dim);
+    max-width: var(--max-w);
+    line-height: 1.55;
+    margin: 0 0 40px 0;
+  }
+  .keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 24px;
+    margin-top: 20px;
+  }
+  .keyword {
+    font-size: clamp(28px, 3.6vw, 48px);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    padding: 10px 22px;
+    border-radius: 999px;
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+  }
+  .keyword .n {
+    color: var(--accent);
+    margin-right: 12px;
+    font-variant-numeric: tabular-nums;
+  }
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+  .tag {
+    font-size: 12px;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-soft);
+    padding: 4px 10px;
+    border-radius: 999px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .sources {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: var(--max-w);
+  }
+  .source {
+    display: flex;
+    gap: 14px;
+    align-items: baseline;
+    padding: 14px 18px;
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--fg);
+    transition: border-color 0.15s, transform 0.15s;
+  }
+  .source:hover {
+    border-color: var(--accent);
+    transform: translateX(2px);
+  }
+  .source .pub {
+    font-size: 13px;
+    color: var(--fg-muted);
+    min-width: 120px;
+    flex-shrink: 0;
+  }
+  .source .ttl {
+    font-size: 16px;
+    color: var(--fg);
+    flex: 1;
+    line-height: 1.4;
+  }
+  .source .dt {
+    font-size: 13px;
+    color: var(--fg-muted);
+    font-variant-numeric: tabular-nums;
+    flex-shrink: 0;
+  }
+  .quick-hits {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: var(--max-w);
+  }
+  .hit {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--fg-dim);
+    text-decoration: none;
+    font-size: 17px;
+    line-height: 1.5;
+  }
+  .hit:last-child { border-bottom: none; }
+  .hit:hover .hit-text { color: var(--fg); }
+  .hit .bullet { color: var(--accent); flex-shrink: 0; }
+  .hit-text { flex: 1; }
+  .hit-pub { color: var(--fg-muted); font-size: 14px; flex-shrink: 0; }
+  .closing {
+    font-size: clamp(22px, 2.6vw, 32px);
+    color: var(--fg-dim);
+    max-width: var(--max-w);
+    line-height: 1.5;
+    font-weight: 400;
+    font-style: italic;
+  }
+  .meta-bar {
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+    font-size: 12px;
+    color: var(--fg-muted);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.04em;
+    pointer-events: none;
+  }
+  .meta-bar .brand { text-transform: uppercase; }
+  .progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 2px;
+    background: var(--accent);
+    width: 0%;
+    transition: width 0.3s ease;
+  }
+  .home-link {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px 8px 12px;
+    background: rgba(19, 19, 22, 0.85);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--fg-dim);
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    transition: border-color 0.15s, color 0.15s, background 0.15s;
+    z-index: 10;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .home-link:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(19, 19, 22, 0.95);
+  }
+  .home-link .arrow {
+    font-size: 15px;
+    line-height: 1;
+    transition: transform 0.15s;
+  }
+  .home-link:hover .arrow {
+    transform: translateX(-2px);
+  }
+  .hint {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 11px;
+    color: var(--fg-muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+  /* Mobile: ditch the slide-deck mode and let everything flow as a vertical scroll.
+     Deck UX needs a keyboard or precise clicks — neither fits a phone. */
+  @media (max-width: 768px) {
+    html, body {
+      overflow: auto;
+      height: auto;
+    }
+    .deck {
+      height: auto;
+      overflow: visible;
+    }
+    .slide {
+      position: static;
+      inset: auto;
+      display: flex !important;
+      justify-content: flex-start;
+      animation: none;
+      padding: 44px 22px;
+      min-height: auto;
+      border-bottom: 1px solid var(--border);
+    }
+    /* First slide needs extra top padding so the fixed home-link doesn't overlap the eyebrow */
+    .slide:first-of-type { padding-top: 68px; }
+    .slide:last-of-type { border-bottom: none; }
+    .home-link {
+      top: 14px;
+      left: 14px;
+      padding: 6px 12px 6px 10px;
+      font-size: 12px;
+    }
+    h1.title { font-size: 36px; margin-bottom: 16px; }
+    h2.headline { font-size: 26px; margin-bottom: 20px; }
+    .subtitle, .summary { font-size: 16px; }
+    .keyword { font-size: 22px; padding: 8px 16px; }
+    .source {
+      flex-direction: column;
+      gap: 4px;
+      padding: 12px 14px;
+    }
+    .source .pub { min-width: 0; font-size: 12px; }
+    .source .ttl { font-size: 15px; }
+    .source .dt { font-size: 12px; }
+    .hit { font-size: 15px; padding: 10px 0; }
+    .hit-pub { font-size: 12px; }
+    .progress, .meta-bar, .hint { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<a class="home-link" href="../index.html" aria-label="아카이브 홈으로 돌아가기">
+  <span class="arrow">←</span>
+  <span>Archive</span>
+</a>
+<div class="deck" id="deck">
+
+      <section class="slide">
+        <div class="eyebrow">Weekly AI Trends · 2026-08-31</div>
+        <h1 class="title">이번 주 AI 트렌드</h1>
+        <p class="subtitle">2026-08-24 ~ 2026-08-30 · Claude Code를 중심으로</p>
+      </section>
+    
+
+      <section class="slide">
+        <div class="eyebrow">이번 주 키워드</div>
+        <h2 class="headline">이걸 알면 이번 주는 끝난 겁니다</h2>
+        <div class="keywords"><div class="keyword"><span class="n">01</span>권한 경계 하드닝</div><div class="keyword"><span class="n">02</span>에이전트가 물리 세계로</div><div class="keyword"><span class="n">03</span>멀티 세션 오케스트레이션</div><div class="keyword"><span class="n">04</span>캐시·비용 가시성</div><div class="keyword"><span class="n">05</span>상시 가동 에이전트 경쟁</div></div>
+      </section>
+    
+
+      <section class="slide">
+        <div class="eyebrow">트렌드 01 / 05</div>
+        <div class="tags"><span class="tag">security</span><span class="tag">release</span></div>
+        <h2 class="headline">Claude Code에 `--restricted` 등장, 한 주 내내 권한 경계 조이기</h2>
+        <p class="summary">v2.1.248이 `--restricted`(또는 `CLAUDE_CODE_RESTRICTED=1`)를 추가함. 명령·코드 실행 도구와 WebFetch를 제거하고, 파일 도구를 작업 디렉터리 안에 가두며, bypassPermissions를 거부하고 user/project/local 설정 파일을 아예 무시함. 이어서 v2.1.251은 심링크 스왑으로 승인 범위 밖 파일을 읽고 쓰던 문제, 플러그인 커맨드의 경로 탈출, Grep/Glob이 심링크 경로에 Read 거부 규칙을 적용하지 않던 문제를 한꺼번에 고침. 샌드박스 TLS 종료·프록시 주입·`ANTHROPIC_CUSTOM_HEADERS` 같은 관리 설정은 이제 적용 전 승인이 필요함.</p>
+        <div class="sources"><a class="source" href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener"><span class="pub">Anthropic</span><span class="ttl">Claude Code changelog — v2.1.248 / v2.1.251</span><span class="dt">2026-08-28</span></a><a class="source" href="https://github.com/anthropics/claude-code/releases" target="_blank" rel="noopener"><span class="pub">GitHub</span><span class="ttl">anthropics/claude-code Releases</span><span class="dt">2026-08-28</span></a></div>
+      </section>
+    
+
+      <section class="slide">
+        <div class="eyebrow">트렌드 02 / 05</div>
+        <div class="tags"><span class="tag">agent</span><span class="tag">hardware</span><span class="tag">mcp</span></div>
+        <h2 class="headline">Anthropic, Model Hardware Standard(MHS) 리서치 프리뷰 공개</h2>
+        <p class="summary">8월 27일 Anthropic이 AI 에이전트가 물리 장비를 안전하게 조작하기 위한 공유 규격 MHS를 과학 연구소·첨단 제조 기업 일부에 먼저 열었음. 프로그래밍 인터페이스가 있는 장비라면 무엇이든 붙고, 모델에 종속되지 않으며 MCP 같은 표준 프로토콜로 접근함. 초기 테스트에서 Genentech 신약 탐색 실험 실시간 오류 처리, HHMI Janelia 이미징 실험 수 주 → 하루 단축, QuEra 양자컴퓨터 레이저 안정화 58% → 99.3% 개선 사례가 나옴. 같은 날 과학자 대상 Claude 팀 플랜 1만 석(스탠다드 무료, 프리미엄 월 $15)도 함께 발표.</p>
+        <div class="sources"><a class="source" href="https://www.anthropic.com/news/model-hardware-standard-research-preview" target="_blank" rel="noopener"><span class="pub">Anthropic</span><span class="ttl">Previewing the Model Hardware Standard</span><span class="dt">2026-08-27</span></a><a class="source" href="https://www.anthropic.com/news/expanding-support-for-scientists" target="_blank" rel="noopener"><span class="pub">Anthropic</span><span class="ttl">Expanding our support for scientists</span><span class="dt">2026-08-27</span></a><a class="source" href="https://www.cnbc.com/2026/08/27/anthropic-pushes-into-physical-world-with-new-standard-to-help-ai-agents-operate-machines.html" target="_blank" rel="noopener"><span class="pub">CNBC</span><span class="ttl">Anthropic pushes into physical world with new standard</span><span class="dt">2026-08-27</span></a></div>
+      </section>
+    
+
+      <section class="slide">
+        <div class="eyebrow">트렌드 03 / 05</div>
+        <div class="tags"><span class="tag">agent</span><span class="tag">orchestration</span></div>
+        <h2 class="headline">세션 간 메시징이 전 프로바이더로 확대, 에이전트 팀 실사용 버그 정리</h2>
+        <p class="summary">cross-session messaging(`SendMessage`/`ListAgents`)이 Bedrock·Vertex·Foundry와 텔레메트리 비활성 환경까지 열림. 포그라운드 서브에이전트의 도구 호출·결과가 Remote Control 클라이언트로 실시간 스트리밍되고, 팀원의 최종 답변이 팀 리드에게 도달하지 않던 문제, 이름 없는 형제/부모 에이전트에게 답장 못 하던 문제가 수정됨. 한국어 IME로 입력한 세션 이름의 @-멘션이 매칭되지 않던 버그도 이번 주에 잡힘.</p>
+        <div class="sources"><a class="source" href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener"><span class="pub">Anthropic</span><span class="ttl">Claude Code changelog — v2.1.247 / v2.1.248 / v2.1.251</span><span class="dt">2026-08-28</span></a><a class="source" href="https://code.claude.com/docs/en/whats-new" target="_blank" rel="noopener"><span class="pub">Anthropic</span><span class="ttl">What&#x27;s new — Claude Code weekly digest</span><span class="dt">2026-08-28</span></a></div>
+      </section>
+    
+
+      <section class="slide">
+        <div class="eyebrow">트렌드 04 / 05</div>
+        <div class="tags"><span class="tag">cost</span><span class="tag">cache</span></div>
+        <h2 class="headline">프롬프트 캐시와 지출이 드디어 눈에 보이기 시작함</h2>
+        <p class="summary">`experimental.cacheTtl`로 에이전트별 캐시 TTL을 잡고, `promptCacheTtl`·`subagentPromptCacheTtl`로 메인 대화는 1시간·서브에이전트는 5분처럼 나눠 쓸 수 있게 됨. `/cost`에 세션별 캐시 적중률·재캐시 토큰 라인이, `/usage`에 Spend limit 바와 Loops 브레이크다운이 추가됨. OAuth 토큰 갱신 후 도구 정의가 다시 렌더링되며 긴 세션에서 시간당 한 번씩 캐시가 깨지던 버그도 수정. `modelPricing` 관리 설정으로 조직 계약 단가가 비용 표시에 반영됨.</p>
+        <div class="sources"><a class="source" href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener"><span class="pub">Anthropic</span><span class="ttl">Claude Code changelog — v2.1.243 / v2.1.248 / v2.1.251</span><span class="dt">2026-08-28</span></a></div>
+      </section>
+    
+
+      <section class="slide">
+        <div class="eyebrow">트렌드 05 / 05</div>
+        <div class="tags"><span class="tag">competition</span><span class="tag">agent</span></div>
+        <h2 class="headline">경쟁 진영도 &#x27;끝나지 않는 에이전트&#x27;로 — OpenAI Codex Persistent mode 정황</h2>
+        <p class="summary">8월 27일 Wired가 OpenAI Codex CLI 코드베이스에서 &#x27;Persistent mode&#x27; 흔적을 포착함. 명시적으로 재우기 전까지 계속 돌면서 세션을 넘어 스스로 후속 작업을 만드는 상시 가동 에이전트 구상. OpenAI 측은 테스트 중이라고 확인했으나 출시 계획은 없다고 선을 그었으므로 [루머] 취급이 맞음. 같은 주 Google Cloud는 법률 산업 특화 에이전트 Gemini Enterprise for Legal을 프리뷰로 내놓음(Cleary·Freshfields·Weil·Williams &amp; Connolly). 상시 가동과 수직 특화, 두 방향이 동시에 밀리는 중.</p>
+        <div class="sources"><a class="source" href="https://features.slashdot.org/story/26/08/27/224230/openai-is-developing-a-persistent-ai-agent" target="_blank" rel="noopener"><span class="pub">Slashdot / Wired</span><span class="ttl">OpenAI Is Developing a &#x27;Persistent&#x27; AI Agent [루머]</span><span class="dt">2026-08-27</span></a><a class="source" href="https://gizmodo.com/nevertheless-openai-persists-with-new-always-on-agent-2000804088" target="_blank" rel="noopener"><span class="pub">Gizmodo</span><span class="ttl">Nevertheless, OpenAI Persists With New Always-On Agent [루머]</span><span class="dt">2026-08-27</span></a><a class="source" href="https://www.googlecloudpresscorner.com/2026-08-25-Google-Cloud-Launches-Gemini-Enterprise-for-Legal" target="_blank" rel="noopener"><span class="pub">Google Cloud</span><span class="ttl">Google Cloud Launches Gemini Enterprise for Legal</span><span class="dt">2026-08-25</span></a></div>
+      </section>
+    
+
+      <section class="slide">
+        <div class="eyebrow">단신 Quick Hits</div>
+        <h2 class="headline">짧게 짚고 넘어갈 것들</h2>
+        <div class="quick-hits"><a class="hit" href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener"><span class="bullet">›</span><span class="hit-text">v2.1.245 — glibc 2.44 리눅스(Arch·CachyOS·Fedora Rawhide) 시작 크래시 긴급 수정</span><span class="hit-pub">Anthropic</span></a><a class="hit" href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener"><span class="bullet">›</span><span class="hit-text">네이티브 바이너리 zstd 압축으로 Linux x64 다운로드 340MB → 약 75MB, 세션당 메모리 40~70MB 절감</span><span class="hit-pub">Anthropic</span></a><a class="hit" href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener"><span class="bullet">›</span><span class="hit-text">Workflow 툴 프롬프트가 5.7k → 약 1k 토큰으로 축소, 작성 레퍼런스는 workflow-authoring 스킬로 분리</span><span class="hit-pub">Anthropic</span></a><a class="hit" href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener"><span class="bullet">›</span><span class="hit-text">시트 기반 Enterprise 구독의 기본 모델이 Opus 5로 변경, `/effort`는 모델별로 기본 레벨을 따로 기억</span><span class="hit-pub">Anthropic</span></a><a class="hit" href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener"><span class="bullet">›</span><span class="hit-text">`SendFeedback` 도구 추가 — 세션이 꼬이면 Claude가 피드백 초안을 작성하고 `/feedback`에서 검토 후 전송</span><span class="hit-pub">Anthropic</span></a><a class="hit" href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener"><span class="bullet">›</span><span class="hit-text">`/permissions`에 Auto mode 탭 신설 — 오토 모드 분류기 규칙을 직접 보고 편집 가능</span><span class="hit-pub">Anthropic</span></a><a class="hit" href="https://www.anthropic.com/news/wellbeing-research-grants" target="_blank" rel="noopener"><span class="bullet">›</span><span class="hit-text">Anthropic, AI가 사용자 웰빙에 미치는 영향을 독립 연구하는 $5M 그랜트 프로그램 발표 (8/25)</span><span class="hit-pub">Anthropic</span></a></div>
+      </section>
+    
+
+      <section class="slide">
+        <div class="eyebrow">마무리</div>
+        <h2 class="headline">이번 주 한 줄</h2>
+        <p class="closing">“이번 주는 &#x27;에이전트를 더 똑똑하게&#x27;가 아니라 &#x27;더 멀리 풀어놓기 위한 안전장치&#x27;가 주제였음. `--restricted`와 심링크·경로 탈출 수정은 신뢰 못 할 코드베이스나 CI에서 Claude Code를 돌리는 걸 전제로 한 정비이고, MHS는 그 경계를 아예 물리 장비까지 넓히는 시도. 다음 주는 Week 35 다이제스트 공개와 MHS 오픈소스화 로드맵, 그리고 OpenAI Persistent mode가 실제로 나오는지 지켜볼 것.”</p>
+      </section>
+    
+</div>
+<div class="meta-bar">
+  <div class="brand">Weekly AI Trends · 2026-08-31</div>
+  <div><span id="cur">1</span> / <span id="total">1</span></div>
+</div>
+<div class="hint">← → space · F for fullscreen</div>
+<script>
+(function () {
+  // On mobile we render everything stacked as a scrollable article, so skip the deck logic entirely.
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
+  if (isMobile) return;
+
+  const slides = document.querySelectorAll('.slide');
+  const total = slides.length;
+  let i = 0;
+  document.getElementById('total').textContent = total;
+  function show(n) {
+    i = (n + total) % total;
+    slides.forEach((s, idx) => s.classList.toggle('active', idx === i));
+    document.getElementById('cur').textContent = i + 1;
+    document.getElementById('progress').style.width = ((i + 1) / total * 100) + '%';
+  }
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); show(i + 1); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); show(i - 1); }
+    else if (e.key === 'Home') { show(0); }
+    else if (e.key === 'End') { show(total - 1); }
+    else if (e.key === 'f' || e.key === 'F') {
+      if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+      else document.exitFullscreen();
+    }
+  });
+  document.addEventListener('click', (e) => {
+    if (e.target.closest('a')) return;
+    show(i + 1);
+  });
+  show(0);
+})();
+</script>
+</body>
+</html>
