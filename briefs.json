@@ -1,5 +1,16 @@
 [
   {
+    "date": "2026-09-14",
+    "title": "이번 주 AI 트렌드",
+    "subtitle": "2026-09-07 ~ 2026-09-13 · Claude Code를 중심으로",
+    "keywords": [
+      "Claude Code 안정성·워크플로우 강화",
+      "AI 오용 탐지 리포트",
+      "자율 에이전트 폭주 경고"
+    ],
+    "html_filename": "briefs/2026-09-14.html"
+  },
+  {
     "date": "2026-09-07",
     "title": "이번 주 AI 트렌드",
     "subtitle": "2026-08-31 ~ 2026-09-06 · Claude Code를 중심으로",
