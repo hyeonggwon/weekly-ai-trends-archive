@@ -96,3 +96,16 @@ curl -s "https://weekly-ai-trends-archive.vercel.app/${THIS_MON}.html" | grep -F
 - [ ] 위 패치를 스케줄 태스크 SKILL.md에 반영 (또는 새 세션에서 Claude에게 갱신 요청)
 - [x] `BOT_TOKEN`을 `weekly-ai-trends-archive/.env`에 추가 (2026-04-29 완료)
 - [ ] 다음 월요일 9시 자동 실행 직후 URL이 `/${이번 주 월요일}.html` 형태로 나오는지 확인
+
+## 2026-09-21 실행에서 발견: 배포 URL이 `/briefs/<date>.html`로 바뀜
+
+**증상**: 검증 단계에서 `https://weekly-ai-trends-archive.vercel.app/2026-09-21.html`이 404. `https://weekly-ai-trends-archive.vercel.app/briefs/2026-09-21.html`은 200.
+
+**원인**: `update_archive.py`의 v6 매니페스트 마이그레이션에서 주간 HTML이 아카이브 루트가 아니라 `briefs/` 서브디렉터리에 저장되도록 바뀌었음(`html_filename: "briefs/<date>.html"`). 하지만 스케줄 태스크 SKILL.md의 URL 규칙은 여전히 루트 경로(`/${THIS_MON}.html`)로 적혀 있어 불일치 발생. 기존 주차(예: `/2026-09-14.html`)도 마찬가지로 루트에서는 404, `/briefs/2026-09-14.html`이 정답.
+
+**불변 규칙(업데이트)**:
+- 배포 URL = `https://weekly-ai-trends-archive.vercel.app/briefs/${THIS_MON}.html` (루트 경로 아님)
+- 검증 단계 curl과 텔레그램 메시지 모두 `/briefs/` 경로를 사용할 것.
+- 아카이브 홈(`/`)은 여전히 루트 그대로.
+
+**적용 방법**: 스케줄 태스크 SKILL.md의 "파일명은 ... URL은 `/${THIS_MON}.html`" 문구를 `/briefs/${THIS_MON}.html`로 교체 필요. 이 실행 세션에서는 스케줄 태스크 자체를 수정할 수 없어 다음 수동 세션에서 반영해야 함.
