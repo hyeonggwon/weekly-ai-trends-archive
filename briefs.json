@@ -1,5 +1,16 @@
 [
   {
+    "date": "2026-09-21",
+    "title": "이번 주 AI 트렌드",
+    "subtitle": "2026-09-14 ~ 2026-09-20 · Claude Code를 중심으로",
+    "keywords": [
+      "서브에이전트 신뢰 경계 강화",
+      "AGENTS.md 지원, 원격 게이트 논란",
+      "Auto mode 과금 구조 개편"
+    ],
+    "html_filename": "briefs/2026-09-21.html"
+  },
+  {
     "date": "2026-09-14",
     "title": "이번 주 AI 트렌드",
     "subtitle": "2026-09-07 ~ 2026-09-13 · Claude Code를 중심으로",
