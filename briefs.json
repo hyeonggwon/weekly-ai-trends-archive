@@ -1,5 +1,16 @@
 [
   {
+    "date": "2026-09-28",
+    "title": "이번 주 AI 트렌드",
+    "subtitle": "2026-09-21 ~ 2026-09-27 · Claude Code를 중심으로",
+    "keywords": [
+      "Opus 5.5 출시",
+      "코딩 에이전트 멀티모델 경쟁",
+      "에이전트 보안·거버넌스 강화"
+    ],
+    "html_filename": "briefs/2026-09-28.html"
+  },
+  {
     "date": "2026-09-21",
     "title": "이번 주 AI 트렌드",
     "subtitle": "2026-09-14 ~ 2026-09-20 · Claude Code를 중심으로",
